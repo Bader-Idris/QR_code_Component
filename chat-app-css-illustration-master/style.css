@@ -1,0 +1,234 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Rubik', sans-serif;/*weight 400 500 700*/
+}
+:root {
+  /* main linear colors */
+  --Light-Magenta: hsl(293, 100%, 63%);
+  --Light-Violet: hsl(264, 100%, 61%);
+  /* secondary colors */
+  --White: hsl(0, 0%, 100%);
+  --Light-Grayish-Violet: hsl(270, 20%, 96%);/* (app background)*/
+  --Very-Dark-Desaturated-Violet: hsl(271, 36%, 24%);/* (submit button background)*/
+  --Very-Light-Magenta: hsl(289, 100%, 72%);/*(radio button outline)*/
+}
+body {
+  background-color: #ddd;/*will change*/
+}
+.mega-menu {
+  display: flex;
+  position: relative;
+}
+.mega-menu::before,
+.mega-menu::after {
+  content: '';
+  width: 420px;
+  height: 87.5%;
+  background-color: #f9f4fa;/*will change*/
+  position: absolute;
+}
+.mega-menu::before {
+  border-radius: 0 0 16rem 16rem;
+  background-image: linear-gradient(25deg,
+    var(--Light-Violet),
+    var(--Light-Magenta));
+}
+.mega-menu::after {
+  border-radius: 16rem 16rem 0 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+@media (max-width: 767px) {
+  .mega-menu {
+    flex-direction: column;
+  }
+}
+.phone-icon {
+  background-color: var(--White);
+  position: relative;
+  padding: 10px;
+  margin: 50px auto;
+  width: 335px;
+  border-radius: 15px;
+}
+.upper-nav {
+  background-image: linear-gradient(25deg,
+  var(--Light-Violet),
+  var(--Light-Magenta));
+  width: 100%;
+  color: var(--White);
+  height: 15%;
+  top: 0;
+  margin: 0 auto;
+  position: relative;
+  padding: 15% 0 0;
+  border-radius: 20px 20px 5px 5px;
+}
+.upper-nav::before {
+  content: '';
+  width: 70%;
+  height: 40px;
+  position: absolute;
+  background-color: var(--White);
+  border-radius: 0 0 20px 20px;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+}
+.upper-nav .angle-left img {
+  transform: scaleX(-100%) translateY(64%);
+  width: 10px;
+  position: absolute;
+  left: 15px;
+  top: 50%;
+}
+.upper-nav .profile {
+  margin-top: 6%;
+  top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
+  left: 10%;
+}
+.upper-nav .profile img {
+  width: 40px;
+  border-radius: 50%;
+  border: 2px solid var(--White);
+}
+.upper-nav .text {
+  left: 85px;
+  position: relative;
+}
+.upper-nav .text p {
+  font-size: 15px;
+  line-height: 15px;
+}
+.upper-nav .phone-character {
+  font-size: 18px;
+}
+.upper-nav .slogan {
+  font-size: 16px;
+  color: #222;
+}
+
+.dog-pictures {
+  align-self: flex-end;
+  padding-right: 15px;
+
+}
+.dog-pictures div {
+  display: inline-block;
+  padding: 15px 5px;
+} 
+.dog-pictures div img {
+  width: 50px;
+  border-radius: 10px;
+}
+.texting-container {
+  height: 85%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #f5f3f8;
+  border-radius: 5px 5px 20px 20px;
+}
+.texting-container .l-comt {
+  align-self: flex-start;
+  padding: 5px;
+  margin: 5px;
+  background-color: #ede5f4;
+  color: var(--Light-Violet);
+  width: 60%;
+  border-radius: 15px;
+}
+.texting-container .r-comt {
+  background-color: var(--White);
+  border-radius: 15px;
+  align-self: flex-end;
+  text-align: left;
+  padding: 10px 0 10px 15px;
+  width: 65%;
+  margin: 5px 15px;
+  font-size: 12px;
+}
+.texting-container .timer {
+  align-self: flex-start;
+  background-image: linear-gradient(25deg,
+  var(--Light-Magenta),
+  var(--Light-Violet));
+  color: var(--White);
+  padding: 5px 15px 5px 15px;
+  width: 75%;
+  margin:5px 15px;
+  border-radius: 20px;
+  text-align: left;
+}
+.texting-container p {
+  font-size: 13px;
+}
+.texting-container .timer p {
+  font-size: 10px;
+}
+.texting-container .timer span {
+  font-weight: bold;
+  font-size: 18px;
+}
+.sending-box {
+  padding: 15px;
+  background-color: var(--White);
+  width: 90%;
+  border-radius: 30px;
+  text-align: left;
+  position: relative;
+  color: #DDD;/*will change*/
+  margin: 15px 0 15px;
+}
+.sending-box p {}
+.sending-box div {
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  transform: translateY(-50%);
+  background-color: var(--Very-Dark-Desaturated-Violet);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+}
+.angle-right img {
+  width: 15px;
+  /* should change icon into white color */
+}
+.mini-container {
+  padding: 10px;
+  width: 400px;
+  background: none;
+  top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
+  right: 0;
+}
+.mini-container .header{
+  font-size: 52px;
+  color: var(--Very-Dark-Desaturated-Violet);
+}
+.mini-container .parag-context {
+  color: var(#DDD);
+}
+
+
+
+
+
+
+.attribution { 
+  font-size: 11px;
+  text-align: center;
+  display: none;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
