@@ -111,9 +111,20 @@ backButton.forEach((e, ind)=> {
   };
 });
 
-submitBtn.addEventListener('click', function(e) {
+submitBtn.addEventListener('click', function (e) {
   e.preventDefault();
-  // perform form validation and submission using JavaScript
+  // trying to send the data using node.js and JSON methods
+  const fs = require('fs');
+  const { execSync } = require('child_process');
+  try {
+    execSync('node -v');
+  } catch (err) {
+    throw new Error('Node.js is not installed on your system');
+  }
+  fs.writeFile('mydata.json', JSON.stringify(formValidatedFunctions()), err => {
+    if (err) throw err;
+    console.log('Data written to file');
+  });
 });
 const fields = [
   { element: nameField, key: 'name' },
@@ -258,3 +269,32 @@ const totalPlanPrices = () => {
     totalSpans[1].innerHTML = `$${subTotalPlan + OptionalSummeryPricesCount()}/mo`;
   }
 }
+
+// functions for submitted data:
+const submittedFields = () => {
+  let container = {};
+  let results = {};
+  fields.forEach(({ element, key }) => {
+    results[key] = element.value;
+  });
+  container.userFields = results;
+  return container;
+};
+const submittedMiniPlan = () => 
+    ({ mainPlan: planOptionSpan.parentElement.childNodes[0].textContent.trim() });
+const subscriptionPlan = () => 
+    ({ subscriptionPlan: yearlyActive ? 'yearly' : 'monthly' });
+const submitOptionPlanClasses = () => [...summery.children]
+  .filter((cur, index) => cur !== 0 && index > 0 && cur.classList.contains('active'))
+  .flatMap((cur, index) => [...cur.classList].filter(item => item !== 'active').map(item => ({ [index]: item })))
+  .reduce((acc, cur) => ({ ...acc, ...cur }), {});
+
+const formValidatedFunctions = () => {
+  formValidated = {
+    submittedFields: submittedFields(),
+    submittedMiniPlan: submittedMiniPlan(),
+    subscriptionPlan: subscriptionPlan(),
+    submitOptionPlanClasses: submitOptionPlanClasses(),
+  }
+  return formValidated
+};
