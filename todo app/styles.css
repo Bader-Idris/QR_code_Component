@@ -31,10 +31,12 @@
   font-family: "Josefin Sans";
   font-weight: 400;
   src: url("assets/fonts/JosefinSans-Italic-VariableFont_wght.ttf");
+  font-display: swap;
 }
 @font-face {
   font-family: "Josefin Sans";
   src: url("assets/fonts/JosefinSans-VariableFont_wght.ttf");
+  font-display: swap;
   font-weight: 700;
 }
 body {
@@ -43,7 +45,6 @@ body {
 body.dark {
   background-color: var(--Very-Dark-Blue);
 }
-.header {}
 .back-img {
   position: absolute;
   width: 100%;
@@ -241,13 +242,6 @@ body.dark .tasks .task {
 body.dark .tasks .task::before {
   border: 1px solid var(--Dark-Grayish-Blue);
 }
-.tasks .task:hover:before {
-  /* border: 2px solid; */
-  /* border-image: linear-gradient(135deg, 
-    var(--linear-gradient-one),
-    var(--linear-gradient-two)) 1; */
-  /* border-radius: 50%; */
-}
 .tasks .task::before {
   content: '';
   width: 25px;
@@ -284,16 +278,10 @@ body.dark  .tasks .task::after {
     margin-bottom: 15px;
   }
 }
-.tasks .task:hover {
-  /* background-color: #f7f7f7; */
-}
 body.dark .tasks .task.done,
 .tasks .task.done {
   text-decoration: line-through;
   color: var(--Dark-Grayish-Blue);
-}
-body.dark .tasks .task.done {
-  /* color: var(--Dark-Grayish-Blue); */
 }
 .tasks .task.done::before {
   content: url("assets/images/icon-check.svg");
@@ -368,7 +356,6 @@ body.dark .filtered-tasks {
 .filtered-tasks span {
   cursor: pointer;
   font-weight: bold;
-  /* color: var(--Dark-Grayish-Blue); */
 }
 body.dark .filtered-tasks span {
   color: var(--Dark-Grayish-Blue);
